@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package listPackage;
+
+service List {
+
+    rpc createList(ListItem) returns (ListItem);
+    rpc readList(noparams) returns (ListItems);
+    rpc readListStream(noparams) returns (stream ListItems);
+}
+
+message noparams {}
+
+message ListItem {
+    int32 id = 1;
+    string name = 2;
+
+}
+
+message ListItems {
+   repeated ListItem items = 1;
+
+}
